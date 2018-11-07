@@ -6,7 +6,7 @@
 #    By: ftreand <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/27 21:48:32 by ftreand      #+#   ##    ##    #+#        #
-#    Updated: 2018/11/01 19:04:20 by ftreand     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/11/07 17:31:44 by ftreand     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -88,9 +88,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
+	@ printf "\n"
+	@ printf "\033[1m\033[32mlibft compiled\n\033[0m"
 
 ./%.o: ./%.c
-	@ printf "\033[1mCompilation de \033[31m%-20s\033[37m\ten \033[34m%-20s\033[0m 🔥\n" $< $@
+	@ printf "|"
 	@gcc -Wall -Werror -Wextra -o $@ -c $< -g
 
 clean:
